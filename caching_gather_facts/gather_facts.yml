@@ -1,0 +1,10 @@
+---
+
+- hosts: all
+  become: yes
+  gather_facts: false
+  tasks:
+
+  - name: Collecte des données gather_facts
+    gather_facts:
+

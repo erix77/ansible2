@@ -1,0 +1,13 @@
+---
+
+- hosts: kalilinux
+  tasks:
+
+  - name: Check if NetworkManager is used
+    service_facts: 
+    register: stdout
+
+  - name: Print result
+    debug:
+      msg: "{{ ansible_facts.services | dict2items | selectattr('value.state', '==', 'running') | map(attribute='key') }}"
+

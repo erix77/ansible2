@@ -1,0 +1,12 @@
+---
+
+- hosts: kalilinux
+  tasks:
+
+  - name: Check if NetworkManager is used
+    service_facts: 
+    register: stdout
+
+  - name: Print result
+    debug:
+      msg: "{{ stdout.ansible_facts.services['NetworkManager.service'] }}"

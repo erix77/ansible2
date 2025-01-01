@@ -1,0 +1,13 @@
+---
+
+- hosts: kalilinux
+  tasks:
+
+  - name: Check if NetworkManager is used
+    service_facts: 
+    register: services_state
+
+  - name: Print result
+    debug:
+      msg: "{{ services_state }}"
+
